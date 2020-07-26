@@ -5,6 +5,10 @@
     <item android:id="@+id/reconnect"
         android:onClick="reload"
         android:title="重新加载" />
+    <item android:title="使用本地资源替换"
+        android:onClick="useLocalMedia"/>
+    <item android:title="使用下载资源替换"
+        android:onClick="useDownloadMedia"/>
     <item android:id="@+id/download"
         android:onClick="download"
         android:title="下载资源" />

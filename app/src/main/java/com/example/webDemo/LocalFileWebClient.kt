@@ -8,6 +8,7 @@ import androidx.annotation.RequiresApi
 import java.io.File
 import java.io.FileInputStream
 import java.io.IOException
+import java.io.InputStream
 
 class LocalFileWebClient(private val context: Context) : WebViewClient() {
 
@@ -65,13 +66,16 @@ class LocalFileWebClient(private val context: Context) : WebViewClient() {
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     private fun mediaResponse(request: WebResourceRequest): WebResourceResponse? {
         var mime = MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(request.url.toString()))
-        var media = File("${context.cacheDir.absolutePath}/${cachedPath(request.url.toString())}")
-        if (!media.exists()) {
-            Log.i(tag,"file ${media.absolutePath} not exist")
-            return null
+        var inputStream = if (CommonVariables.useLocalMedia) {
+            context.assets.open("media.mp4")
+        } else {
+            var media = File("${context.cacheDir.absolutePath}/${cachedPath(request.url.toString())}")
+            if (!media.exists()) {
+                Log.i(tag,"file ${media.absolutePath} not exist")
+                return null
+            }
+            FileInputStream(media)
         }
-
-        var inputStream = FileInputStream(media)
 
         val tempResponseHeaders: MutableMap<String, String> = HashMap();
         try {

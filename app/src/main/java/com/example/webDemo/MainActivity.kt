@@ -42,6 +42,14 @@ class MainActivity : AppCompatActivity() {
         web.reload()
     }
 
+    fun useDownloadMedia(item: MenuItem) {
+        CommonVariables.useLocalMedia = false
+    }
+
+    fun useLocalMedia(item: MenuItem) {
+        CommonVariables.useLocalMedia = true
+    }
+
     private fun downloadFile(url: String) {
 
         val file = File("${cacheDir.absolutePath}/${cachedPath(url)}")
