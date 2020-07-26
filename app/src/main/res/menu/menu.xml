@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <item android:id="@+id/reconnect"
+        android:onClick="reload"
+        android:title="重新加载" />
+    <item android:id="@+id/download"
+        android:onClick="download"
+        android:title="下载资源" />
+</menu>
