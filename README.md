@@ -11,7 +11,7 @@
 
 ## 使用
 
-1. 点击右上角【三点】按钮，选择【使用本地资源替换】，会将 http video 的 mp4 下载到本地，然后重载本地网页。此时由于应用中，已经有对应的视频资源，http video 的请求，将会被`LocalFileWebClient`拦1截，将本地视频内容，返回给 webview。这些操作，可以在 logcat 使用 `download` 标签进行查看。
+1. 点击右上角【三点】按钮，选择【使用本地资源替换】，会将 http video 的 mp4 下载到本地，然后重载本地网页。此时由于应用中，已经有对应的视频资源，http video 的请求，将会被`LocalFileWebClient`拦截，将本地视频内容，返回给 webview。这些操作，可以在 logcat 使用 `download` 标签进行查看。
     * 当未下载时，会提示 `not exsit`，当应用中存在视频时，会提示`request hit`
 1. 还可以点击【三点】按钮，选择【使用下载资源替换】，会将 http video 的 mp4 请求响应，替换成 Android `assets` 视频
     * 此时不需要使用 logcat 查看日志，`assets`视频与 http video 资源不同
